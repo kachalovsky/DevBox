@@ -3,7 +3,7 @@
     ViewBag.Title = "Регистрация";
 }
 
-@*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         <h4>Создайте новую учетную запись.</h4>
@@ -34,11 +34,9 @@
         </div>
     }
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }*@
+ 
 
-<div id="content">
+@*<div id="content">
     <div class="header">
         <img src="../../Content/Img/register.png" alt="">
     </div>
@@ -83,4 +81,4 @@
         </div>
 
     </form>
-</div>
+</div>*@

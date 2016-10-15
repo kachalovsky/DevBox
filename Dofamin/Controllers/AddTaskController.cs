@@ -53,11 +53,12 @@ namespace DevBox.Controllers
             };
             var questions = _entities.Complies_Puzzle_Question.Where(x => x.Id_Puzzle == idPuzzle).OrderBy(x => x.Index).Select(x => x.Question).ToList();
 
-            if (num - questions.Count() == 1)
+            if (num > questions.Count())
             {
+                if (num - questions.Count() > 1) num = questions.Count+1;
                 model.PuzzleId = idPuzzle;
                 model.Num = num;
-                model.Question = new Question();
+                model.Question = new Question();                
                 model.All = questions.Count() + 1;
                 model.Answer = new Answers();
             }
