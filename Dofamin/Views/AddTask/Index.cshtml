@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DevBox.Models.Puzzle>
+
+<div id="content">
+    <div class="header">
+        <img src="../../Content/Img/profile.png">
+    </div>
+
+    <div id="puzzle-container">
+        @foreach (var item in Model)
+        {
+            <button class="puzzle-button" onclick="window.location = '@Url.Action("AddPuzzle","AddTask",new { id = item.Id })'">
+                <div>
+                    <div class="puzzle-img-container">
+                        <div class="puzzle-img"></div>
+                    </div>
+                    <div class="puzzle-text"><center>@item.Name</center></div>
+                </div>
+            </button>
+        }
+
+        <button class="puzzle-button" onclick="window.location = '@Url.Action("AddPuzzle","AddTask")'">
+            <div>
+                <div class="puzzle-container-new">
+                    <div class="puzzle-img-new"></div>
+                </div>
+                <div class="puzzle-text"><center>Добавить</center></div>
+            </div>
+        </button>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div style="text-align: center; width: 100%; height: 550px; display: block" href="@Url.Action("Index", "Home")">
+    <img src="../../Content/Img/devbox.png" style="position: relative; top: 193px;" alt="">
+</div>
+
+<div style="display: flex; justify-content: center; width: 100%; height: 300px; border: 20px; border-color: #e74c3c;">
+    <div style="position: absolute; height: 240px; width: 700px;">
+
+        <button class="button shadow" id="create" onclick="window.location = '@Url.Action("Index", "AddTask")'">
+            <div style="text-align: center; position: relative;"></div>
+        </button>
+        <button class="button shadow" id="games" onclick="window.location = '@Url.Action("Index", "Play")'">
+            <div style="text-align: center; position: relative;"></div>
+        </button>
+
+        <p class="muler_bold" style="color: #4b576e; left: 4%; position: absolute; top: 90%;">СОЗДАТЬ</p>
+        <p class="muler_bold" style="color: #e74c3c; left: 79%; position: absolute; top: 90%;">ИГРАТЬ</p>
+    </div>
+</div>
+
+<div id="results">
+    <center> 
+        <h1 class="muler_bold" style="text-align: center; color: #ededed; height: 100px; font-size: 50px; top: 200px; position: relative;">ТАБЛИЦА ЛИДЕРОВ</h1>
+
+        <div style="position: relative; top: 250px;">
+            <table class="table" style="width: 61.2%; color: #ffffff; font-size: 13pt;">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                @for (var i = 0; i < 10; i++)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </center>
+</div>
+
+<div id="about">
+    <center>
+        <div style="width: 50%; position: relative; top: 200px;">
+            <h1 class="muler_bold" style="text-align: center; height: 100px; font-size: 50px;">О ПРОЕКТЕ</h1>
+
+            <p class="muler_bold" style="font-size: 18px; text-align: left; text-indent: 1.5em; text-transform: uppercase;">
+                Крупные компании давно используют тестирование по различным методологиям, компании среднего уровня также подключаются к этому процессу.
+            </p>
+            <p class="muler_bold" style="font-size: 18px; text-align: left; text-indent: 1.5em; text-transform: uppercase;">
+                В настоящее время многие из них чувствуют необходимость в использовании площадки по созданию и размещению логических задач, с целью определения уровня умственных способностей потенциальных сотрудников компании. Самое важное – любой выпускник, даже без опыта работы, способен пройти успешно тесты, собеседование и устроиться в международную корпорацию. Это подразумевает достойную зарплату, страховку и головокружительное начало карьеры. 
+            </p>
+            <p class="muler_bold" style="font-size: 18px; text-align: left; text-indent: 1.5em; text-transform: uppercase;">
+                Платформа «Дофамин» предоставляет услуги по созданию и размещению головоломок, призванных помочь специалисту HR сделать правильный выбор из огромного количества кандидатов.
+            </p>
+        </div>
+    </center>
+    <img src="../../Content/Img/figure_left.png" style="position: relative; top: -250px;" alt="">
+
+    <img src="../../Content/Img/figure_right.png" style="position: relative; top: -250px;" alt="" align="right">
+</div>
+
+<div id="services">
+    <center style="color: #ededed">
+        <div style="width: 50%; position: relative; top: 200px;">
+            <h1 class="muler_bold" style="text-align: center; height: 100px; font-size: 50px;">ЧЕМ МЫ МОЖЕМ ПОМОЧЬ ВАМ?</h1>
+
+            <p class="muler_bold" style="font-size: 18px; text-align: left; text-indent: 1.5em; text-transform: uppercase;">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            </p>
+            <p class="muler_bold" style="font-size: 18px; text-align: left; text-indent: 1.5em; text-transform: uppercase;">
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
+            </p>
+            <p class="muler_bold" style="font-size: 18px; text-align: left; text-indent: 1.5em; text-transform: uppercase;">
+                aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            </p>
+        </div>
+    </center>
+</div>
+
+<div id="footer"></div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DevBox.Models.Puzzle>
+
+@{
+    ViewBag.Title = "Puzzles";
+} 
+
+<div id="content">
+    <div class="header">
+        <img src="../../Content/Img/profile.png" style="">
+    </div>
+
+    <div id="puzzle-container">
+        @foreach (var item in Model)
+        {
+            <button class="puzzle-button" onclick="window.location = '@Url.Action("Question","Play", new {idPuzzle = item.Id})'">
+                <div>
+                    <div class="puzzle-img-container">
+                        <div class="puzzle-img"></div>
+                    </div>
+                    <div class="puzzle-text"><center>@item.Name</center></div>
+                </div>
+            </button>
+        }
+    </div>
+</div>
+
+
+
+
+
+

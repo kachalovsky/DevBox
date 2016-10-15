@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <link href="../../Content/selectric.css" rel="stylesheet" type="text/css" />
+    @*<script src="../../Scripts/jquery.min.js"></script>*@
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../../Scripts/jquery.selectric.js"></script>
+
+    <title> Дофамин </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script>
+        $(document).ready(function () {
+            $('select').selectric();
+        });
+    </script>
+
+
+    <style>
+        /*описание стилей*/
+        #loadImg {
+            position: absolute;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+
+    <script>
+        var t;
+        function up() {
+            var top = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+            if (top > 0) {
+                window.scrollBy(0, -100);
+                t = setTimeout('up()', 20);
+            } else clearTimeout(t);
+            return false;
+        }
+    </script>
+
+</head>
+<body>
+    <button id="next" onclick="return up()"></button>
+
+    <img id="loadImg" src="../../Content/Img/load.gif" />
+
+    <div style="text-align: center;">
+        <a href="@Url.Action("Index", "Home")">
+            <img src="../../Content/Img/logo.png" style="position: relative; top: 16px;" alt="">
+        </a>
+    </div>
+
+    <a href="@(Url.Action("Index", "Home") + "#results")" style="position: absolute; top: 57px; left: 25.4%;" class="nav_bar">РЕЙТИНГ</a>
+    <a href="@(Url.Action("Index", "Home") + "#about")" style="position: absolute; top: 57px; left: 37.7%;" class="nav_bar">О НАС</a>
+    <a href="@(Url.Action("Index", "Home") + "#services")" style="position: absolute; top: 57px; left: 58.4%;" class="nav_bar">УСЛУГИ</a>
+    <a href="@(Url.Action("Register", "Account") + "#about")" style="position: absolute; top: 57px; left: 66.2%;" class="nav_bar">РЕГИСТРАЦИЯ/ВОЙТИ</a>
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

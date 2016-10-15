@@ -1,0 +1,86 @@
+﻿@model DevBox.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+@*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Создайте новую учетную запись.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Регистрация" />
+            </div>
+        </div>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+<div id="content">
+    <div class="header">
+        <img src="../../Content/Img/register.png" alt="">
+    </div>
+    <form action="" method="POST">
+        <div class="field">
+            <span class="name">ИМЯ ПОЛЬЗОВАТЕЛЯ</span>
+            <input type="text" name="name" placeholder="Введите имя" class="checked">
+        </div>
+        <div class="field">
+            <span class="name">ДАТА РОЖДЕНИЯ</span>
+            <select name="category">
+                @for (var i = 1; i <= 31; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <select name="category">
+                @for (var i = 1; i <= 12; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <select name="category">
+                @for (var i = 1950; i <= 2016; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div> 
+
+        <div class="field">
+            <span class="name">ПОЧТА</span>
+            <input type="text" name="name" placeholder="E-MAIL" class="checked">
+        </div>
+        <div class="field">
+            <span class="name">Пароль</span>
+            <input type="text" name="name" placeholder="Введите пароль" class="checked">
+            <input type="text" name="name" placeholder="Повторите пароль" class="checked">
+        </div>
+        <div class="field">
+            <input type="submit" value="Регистриация">
+        </div>
+
+    </form>
+</div>

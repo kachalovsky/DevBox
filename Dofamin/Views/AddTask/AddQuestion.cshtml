@@ -1,0 +1,74 @@
+﻿@model DevBox.Models.AddInfo
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="content">
+    <div class="header">
+        <img src="../../Content/Img/edition.png">
+    </div>
+    <div class="field">
+        <span class="name">Задания</span>
+        <div class="circles">
+            @for (int i = 1; i <= Model.All; i++)
+            {
+                if (i == Model.Num)
+                {
+                    <button class="button-circle"><span>@i</span></button>
+                }
+                else
+                {
+                    <button class="button-circle" onclick="window.location = '@Url.Action("AddQuestion","AddTask",new { idPuzzle = Model.PuzzleId,num = i})'"><center><span class="active">@i</span></center></button>
+                }
+
+            }
+
+            <button class="button-circle" onclick="window.location = '@Url.Action("AddQuestion","AddTask",new { idPuzzle = Model.PuzzleId,num = Model.All+1})'"><span class="plus">+</span></button>
+        </div>
+    </div>
+    @using (Html.BeginForm(Html.BeginForm("AddQuestion", "AddTask", FormMethod.Post, new { enctype = "multipart/form-data" })))
+    {
+        @Html.HiddenFor(x => x.Num)
+        @Html.HiddenFor(x => x.PuzzleId)
+        @Html.HiddenFor(x => x.Answer.Id)
+        <div class="field">
+            @Html.HiddenFor(x => x.Question.Id)
+            @Html.EditorFor(x => x.Question)
+        </div>
+        <div class="field">
+            <span class="name">Загрузить изображение головоломки</span>
+            <input type="file" name="Image" />
+        </div>
+        <div class="field">
+            <span class="name">Ответ</span>
+            @Html.TextBoxFor(x => x.Answer.Answer, new { placeholder = "Введите ответ" })
+        </div>
+        <div class="field">
+            <span class="name">Подсказка</span>
+            <input type="text" class="small" name="tip" placeholder="Возможный ответ">
+            <input type="text" class="small" name="tip" placeholder="Текстовая подсказка">
+            <input type="text" class="small" name="tip" placeholder="Графическая подсказка">
+        </div>
+        <div class="field">
+            <div class="act">
+                <a href="#" class="plus">+</a>
+                <a href="#" class="minus">-</a>
+            </div>
+            <input type="text" class="small" name="tip" placeholder="Возможный ответ">
+            <input type="text" class="small" name="tip" placeholder="Текстовая подсказка">
+            <input type="text" class="small" name="tip" placeholder="Графическая подсказка">
+        </div>
+        <div class="field">
+            <div class="act">
+                <a href="#" class="plus">+</a>
+                <a href="#" class="minus">-</a>
+            </div>
+            <input type="text" class="small" name="tip" placeholder="Возможный ответ">
+            <input type="text" class="small" name="tip" placeholder="Текстовая подсказка">
+            <input type="text" class="small" name="tip" placeholder="Графическая подсказка">
+        </div>
+        <div class="field">
+            <input type="submit" value="Сохранить">
+        </div>
+    }
+</div>

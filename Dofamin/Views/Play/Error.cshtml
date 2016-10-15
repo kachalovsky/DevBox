@@ -1,0 +1,9 @@
+﻿@model DevBox.Models.Question
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Error</h2>
+Вернуться назад
+
+@Html.ActionLink("Вернуться назад" , "Question",new { idPuzzle =ViewBag.idPuzzle, idQuestion = Model.Id})

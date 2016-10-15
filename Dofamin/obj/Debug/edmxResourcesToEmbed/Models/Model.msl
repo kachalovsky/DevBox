@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DevBoxModelContainer" CdmEntityContainer="DevBoxEntities">
+    <EntitySetMapping Name="Answers">
+      <EntityTypeMapping TypeName="DevBoxModel.Answers">
+        <MappingFragment StoreEntitySet="Answers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Question" ColumnName="Id_Question" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="DevBoxModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Complies_Puzzle_Question">
+      <EntityTypeMapping TypeName="DevBoxModel.Complies_Puzzle_Question">
+        <MappingFragment StoreEntitySet="Complies_Puzzle_Question">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Puzzle" ColumnName="Id_Puzzle" />
+          <ScalarProperty Name="Id_Question" ColumnName="Id_Question" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puzzle">
+      <EntityTypeMapping TypeName="DevBoxModel.Puzzle">
+        <MappingFragment StoreEntitySet="Puzzle">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id_Category" ColumnName="Id_Category" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question">
+      <EntityTypeMapping TypeName="DevBoxModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Img" ColumnName="Img" />
+          <ScalarProperty Name="ImgMimeType" ColumnName="ImgMimeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tips">
+      <EntityTypeMapping TypeName="DevBoxModel.Tips">
+        <MappingFragment StoreEntitySet="Tips">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Id_Question" ColumnName="Id_Question" />
+          <ScalarProperty Name="Answers" ColumnName="Answers" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Img" ColumnName="Img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

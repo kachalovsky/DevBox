@@ -1,0 +1,34 @@
+﻿@model DevBox.Models.Puzzle
+
+<div id="content">
+    <div class="header">
+        <img src="../../Content/Img/create_puzzle.png">
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="field">
+            <span class="name">Название головоломки</span>
+            @Html.TextBoxFor(x => x.Name, new { placeholder = "Введите название" })
+        </div>
+        <div class="field">
+            <span class="name">Категория</span>
+            <select name="id_category">
+                @foreach (var item in (IEnumerable<DevBox.Models.Categories>)ViewBag.Categories)
+                {
+                    <option @if (item.Id == Model.Id_Category) { @: selected="selected"
+                                                    }
+                            value="@item.Id">
+                        @item.Name
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="field">
+            <span class="name">Описание</span>
+            @Html.TextAreaFor(x => x.Description, new { placeholder = "Введите описание" })
+        </div>
+        <div class="field">
+            <input type="submit" value="Сохранить">
+        </div>
+    }
+</div>

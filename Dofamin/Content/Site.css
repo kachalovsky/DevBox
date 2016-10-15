@@ -1,0 +1,337 @@
+﻿body {
+    background: url(Img/pattern.jpg);
+    background-repeat: repeat;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.nav_bar {
+    font-family: HelveticaNeueCyrRoman;
+    font-size: 11pt;
+    color: #4d5970;
+}
+
+@font-face {
+    font-family: HelveticaNeueCyrRoman;
+    src: url(Fonts/HelveticaRegular.ttf);
+}
+
+@font-face {
+    font-family: MullerBold;
+    src: url(Fonts/MullerBold.ttf);
+}
+
+#create {
+    float: left;
+    Width: 188px;
+    Height: 188px;
+    border-radius: 5px;
+    background-color: white;
+    background-image: url(Img/edit.png);
+}
+
+#games {
+    float: right;
+    Width: 188px;
+    Height: 188px;
+    border-radius: 5px;
+    background-color: white;
+    background-image: url(Img/Games.png);
+}
+
+.button {
+    background-color: white;
+    border: none;
+    Width: 188px;
+    Height: 188px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.shadow {
+    box-shadow: 4px 4px 0 #4d5970;
+    box-shadow: 4px 4px 0 rgba(77, 89, 112, 0.32);
+    padding: 10px;
+}
+
+.muler_bold {
+    font-family: MullerBold;
+    font-size: 20pt;
+}
+
+#results {
+    background-image: url(Img/pattern2.png);
+    height: 1000px;
+    width: 100%;
+    position: relative;
+}
+
+#about {
+    position: relative;
+    height: 1000px;
+    width: 100%;
+}
+
+#services {
+    position: relative;
+    height: 1000px;
+    width: 100%;
+    background-image: url(Img/pattern3.png);
+}
+
+#footer {
+    width: 100%;
+    position: relative;
+    height: 50px;
+}
+
+#header {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+    #header a {
+        text-decoration: none;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 30px;
+        color: #4d5970;
+        text-transform: uppercase;
+    }
+
+    #header .logo {
+        display: inline-block;
+        width: 50px;
+        height: 100px;
+        background-image: url(../img/logo.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+#content {
+    width: 800px;
+    margin: 0 auto;
+}
+
+    #content .header {
+        margin: 50px 0;
+    }
+
+.field {
+    margin-bottom: 40px;
+}
+
+    .field .name {
+        color: #4d5970;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 13px;
+        display: block;
+        margin-bottom: 14px;
+    }
+
+    .field input, .field textarea {
+        margin-right: 30px;
+        outline: none !important;
+        font-family: HelveticaNeueCyrRoman;
+        background-color: #fff;
+        box-sizing: border-box;
+        width: 435px;
+        font-weight: 600;
+        border: 0;
+        padding: 12px 16px 10px 16px;
+        font-size: 13px;
+        color: #4d5970;
+        text-transform: uppercase;
+        border-bottom: 4px solid #e74c3c;
+    }
+
+    .field .checked {
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        padding-right: 50px;
+    }
+
+    .field textarea {
+        min-height: 130px;
+    }
+
+    .field input[type=submit] {
+        width: auto;
+        padding: 12px 30px 10px 30px;
+    }
+
+    .field input:hover, .field textarea:hover {
+        border-color: #e74c3c;
+    }
+
+    .field input.small {
+        width: 220px;
+    }
+
+    .field .act {
+        float: left;
+        width: 85px;
+        margin-left: -85px;
+    }
+
+        .field .act a {
+            font-size: 25px;
+            display: inline-block;
+            margin-top: 5px;
+            width: 28px;
+            height: 28px;
+            line-height: 25px;
+            text-align: center;
+            border-radius: 50%;
+            color: #fff;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+            .field .act a.plus {
+                background: #3ce754;
+            }
+
+            .field .act a.minus {
+                background: #e74c3c;
+            }
+
+.circles span {
+    font-family: MullerBold;
+    font-size: 30px;
+    font-weight: bold;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid #4b576e;
+    margin-right: 20px;
+    color: #4b576e;
+    text-align: center;
+    line-height: 80px;
+}
+
+.circles .plus {
+    border-style: dashed;
+}
+
+.circles .active {
+    color: #fff;
+    background: #4b576e;
+}
+
+#next {
+    height: 100%;
+    width: 150px;
+    background-color: transparent;
+    position: fixed;
+    z-index: 20;
+    border: none;
+    border-color: transparent;
+}
+
+    #next:hover {
+        background-color: black;
+        opacity: 0.1;
+        border: none;
+    }
+
+    #next:visited {
+        border: none;
+    }
+
+    #next:active {
+        border: none;
+    }
+
+button,
+button:active,
+button:focus {
+    outline: none;
+}
+
+
+#puzzle-container {
+    width: 100%;
+    height: 180px;
+}
+
+.puzzle-button {
+    background-color: transparent;
+    border: none;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+.puzzle-img-container {
+    width: 133px;
+    height: 133px;
+    background-color: #3399DB;
+    border-radius: 6px;
+}
+
+.puzzle-img {
+    width: 133px;
+    height: 133px;
+    background-image: url("Img/puzzle.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.puzzle-text {
+    margin-top: 10px;
+    text-align: center;
+    position: relative; 
+    text-transform: uppercase;
+}
+
+.category-text {
+    border-top: 3px solid #bdc1c8;
+    text-align: center;
+    position: relative;
+    top: -10px;
+    text-transform: uppercase;
+}
+
+.category-img {
+    width: 100%;
+    height: 80%;
+    background-image: url("Img/puzzle.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.puzzle-container-new {
+    background-color: transparent;
+    border-radius: 6px;
+    border: 3px dashed #3399DB;
+    width: 133px;
+    height: 133px;
+}
+
+.puzzle-img-new {
+    width: 133px;
+    height: 133px;
+    background-image: url("Img/add.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.button-circle {
+    background-color: transparent;
+    border: none;
+}

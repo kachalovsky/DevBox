@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DevBox.Models.Categories>
+
+<div id="content">
+    <div class="header">
+        <img src="../../Content/Img/category.png">
+    </div> 
+    
+    <div> 
+        @foreach (var item in Model)
+        {
+            <button class="puzzle-button" onclick="window.location = '@Url.Action("Puzzles", "Play", new {idCategory = item.Id})'">
+                <div style="background-color: white; width: 120px; height: 160px; text-align: center; ">
+                    <div class="category-img"></div> 
+                    
+                    <div class="category-text"><center style="text-indent: 1.5em;">@item.Name</center></div>
+                </div> 
+            </button>
+        } 
+    </div>
+</div>
+
+
+
+
+
+

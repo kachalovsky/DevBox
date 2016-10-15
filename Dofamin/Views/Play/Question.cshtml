@@ -1,0 +1,25 @@
+﻿@model DevBox.Models.Question
+
+@{
+    ViewBag.Title = "Question";
+}
+
+<div id="content">
+
+    <br />
+    <h1>@Model.Text</h1>
+
+    <img src="@Url.Action("GetImage", "AddTask", new {id = Model.Id})" style="height: 500px; width: 500px; " />
+    <br /> <br />
+    @using (Html.BeginForm("CheckQuestion", "Play", FormMethod.Post))
+    {
+        <div class="field">
+            @Html.TextArea("Answer", new { placeholder = "Введите ответ" })
+        </div>
+        @Html.Hidden("idPuzzle", (int)ViewBag.idPuzzle)
+        @Html.Hidden("idQuestion", Model.Id);
+        <div class="field">
+            <input type="submit" value="Ответить">
+        </div>
+    }
+</div>

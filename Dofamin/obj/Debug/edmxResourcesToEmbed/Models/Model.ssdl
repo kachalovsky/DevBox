@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DevBoxModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Answers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Question" Type="int" />
+    <Property Name="Answer" Type="text" />
+  </EntityType>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Complies_Puzzle_Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Puzzle" Type="int" />
+    <Property Name="Id_Question" Type="int" />
+    <Property Name="Index" Type="int" />
+  </EntityType>
+  <EntityType Name="Puzzle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Id_Category" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="text" />
+    <Property Name="Img" Type="varbinary(max)" />
+    <Property Name="ImgMimeType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tips">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Question" Type="int" />
+    <Property Name="Answers" Type="text" />
+    <Property Name="Text" Type="text" />
+    <Property Name="Img" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Answers__Id_Ques__2D27B809">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Answers" Type="Self.Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="Id_Question" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complies___Id_Ne__31EC6D26">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Complies_Puzzle_Question" Type="Self.Complies_Puzzle_Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Complies_Puzzle_Question">
+        <PropertyRef Name="Index" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complies___Id_Pu__300424B4">
+    <End Role="Puzzle" Type="Self.Puzzle" Multiplicity="0..1" />
+    <End Role="Complies_Puzzle_Question" Type="Self.Complies_Puzzle_Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puzzle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Complies_Puzzle_Question">
+        <PropertyRef Name="Id_Puzzle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Complies___Id_Qu__30F848ED">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Complies_Puzzle_Question" Type="Self.Complies_Puzzle_Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Complies_Puzzle_Question">
+        <PropertyRef Name="Id_Question" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Puzzle__Id_Categ__25869641">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Puzzle" Type="Self.Puzzle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Puzzle">
+        <PropertyRef Name="Id_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tips__Id_Questio__2A4B4B5E">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Tips" Type="Self.Tips" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tips">
+        <PropertyRef Name="Id_Question" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище DevBoxModelContainer">
+    <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Complies_Puzzle_Question" EntityType="Self.Complies_Puzzle_Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puzzle" EntityType="Self.Puzzle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tips" EntityType="Self.Tips" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Answers__Id_Ques__2D27B809" Association="Self.FK__Answers__Id_Ques__2D27B809">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complies___Id_Ne__31EC6D26" Association="Self.FK__Complies___Id_Ne__31EC6D26">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Complies_Puzzle_Question" EntitySet="Complies_Puzzle_Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complies___Id_Pu__300424B4" Association="Self.FK__Complies___Id_Pu__300424B4">
+      <End Role="Puzzle" EntitySet="Puzzle" />
+      <End Role="Complies_Puzzle_Question" EntitySet="Complies_Puzzle_Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Complies___Id_Qu__30F848ED" Association="Self.FK__Complies___Id_Qu__30F848ED">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Complies_Puzzle_Question" EntitySet="Complies_Puzzle_Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Puzzle__Id_Categ__25869641" Association="Self.FK__Puzzle__Id_Categ__25869641">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Puzzle" EntitySet="Puzzle" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tips__Id_Questio__2A4B4B5E" Association="Self.FK__Tips__Id_Questio__2A4B4B5E">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Tips" EntitySet="Tips" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
