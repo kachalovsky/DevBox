@@ -1,0 +1,12 @@
+﻿@model DevBox.Models.Question
+@{
+    ViewBag.Title = "Tip";
+}
+
+<h2>Tip</h2>
+
+<p>@ViewBag.Tip</p>
+<p>Вернуться назад
+
+@Html.ActionLink("Вернуться назад", "Question", new { idPuzzle = ViewBag.idPuzzle, idQuestion = Model.Id })
+</p>

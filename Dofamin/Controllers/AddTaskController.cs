@@ -69,7 +69,7 @@ namespace DevBox.Controllers
                 model.Question = questions.Skip(num - 1).FirstOrDefault();
                 model.All = questions.Count();
                 model.Answer = _entities.Answers.Where(x => x.Id_Question == model.Question.Id).FirstOrDefault();
-
+                model.Tips = _entities.Tips.Where(x => x.Id_Question == model.Question.Id).ToList();
             }
             else
             {
@@ -79,7 +79,7 @@ namespace DevBox.Controllers
         }
 
         [HttpPost]
-        public void AddQuestion(AddInfo addInfo, HttpPostedFileBase image)
+        public void AddQuestion(AddInfo addInfo, List<string> tip_answ, List<string> tip, HttpPostedFileBase image)
         {
             if (image != null)
             {
@@ -100,6 +100,12 @@ namespace DevBox.Controllers
                 Answers ans = new Answers { Id_Question = addInfo.Question.Id };
                 ans.Answer = addInfo.Answer.Answer;
                 _entities.Answers.Add(ans);
+
+                for(int i=0; i<tip_answ.Count; i++)
+                {
+                    if(tip_answ[i]!="")
+                    _entities.Tips.Add(new Tips { Id_Question = addInfo.Question.Id, Answers = tip_answ[i], Text = tip[i] });
+                }
             }
             else
             {
@@ -109,6 +115,15 @@ namespace DevBox.Controllers
                 que.Text = addInfo.Question.Text;
                 Answers ans = _entities.Answers.FirstOrDefault(x => x.Id_Question == que.Id);
                 ans.Answer = addInfo.Answer.Answer;
+                foreach (var item in _entities.Tips.Where(x=>x.Id_Question == que.Id))
+                {
+                    _entities.Tips.Remove(item);
+                }
+                for (int i = 0; i < tip_answ.Count; i++)
+                {
+                    if (tip_answ[i] != "")
+                        _entities.Tips.Add(new Tips { Id_Question = addInfo.Question.Id, Answers = tip_answ[i], Text = tip[i] });
+                }
             }
             _entities.SaveChanges();
             Response.Redirect(Url.Action("AddQuestion", new { idPuzzle = addInfo.PuzzleId, num = addInfo.Num + 1 }));

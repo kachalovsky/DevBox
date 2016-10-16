@@ -366,6 +366,7 @@
     <Content Include="Views\Play\Question.cshtml" />
     <Content Include="Views\Play\Error.cshtml" />
     <Content Include="Views\Play\Win.cshtml" />
+    <Content Include="Views\Play\Tip.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

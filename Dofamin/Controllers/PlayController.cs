@@ -48,6 +48,11 @@ namespace DevBox.Controllers
                     return RedirectToAction("Question", "Play", new { idPuzzle = idPuzzle, idQuestion = nextQuestion.Id });
                 else return View("Win");
             }
+            else if (_entities.Tips.Where(x=>x.Id_Question == idQuestion).Select(x => x.Answers).ToList().Exists(x => x.ToLower() == answer.ToLower()))
+            {
+                ViewBag.Tip = _entities.Tips.Where(x => x.Id_Question == idQuestion).ToList().FirstOrDefault(x => x.Answers.ToLower() == answer.ToLower()).Text;
+                return View("Tip", null, questinon);
+            }
             else
             {
 

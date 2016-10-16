@@ -37,19 +37,41 @@
         </div>
         <div class="field">
             <span class="name">Загрузить изображение головоломки</span>
+            @if (Model.Question.Img != null)
+            {
+                <img src="@Url.Action("GetImage", "AddTask", new {id = Model.Question.Id})" style="height: 300px; width: 300px; margin: 10px 0" />
+
+            }
+
             <input type="file" name="Image" />
         </div>
         <div class="field">
             <span class="name">Ответ</span>
             @Html.TextBoxFor(x => x.Answer.Answer, new { placeholder = "Введите ответ" })
         </div>
+
+        if (Model.Tips != null)
+        {
+            foreach (var item in Model.Tips)
+            {
+                <div class="field">
+                    <span class="name">Подсказка</span>
+
+
+                    <input type="text" class="small" name="tip_answ" placeholder="Возможный ответ" value="@item.Answers">
+                    <input type="text" class="small" name="tip" placeholder="Текстовая подсказка" value="@item.Text">
+                </div>
+            }
+        }
+
+
         <div class="field">
             <span class="name">Подсказка</span>
-            <input type="text" class="small" name="tip" placeholder="Возможный ответ">
+
+            <input type="text" class="small" name="tip_answ" placeholder="Возможный ответ">
             <input type="text" class="small" name="tip" placeholder="Текстовая подсказка">
-            <input type="text" class="small" name="tip" placeholder="Графическая подсказка">
         </div>
-   
+
         <div class="field">
             <input type="submit" value="Сохранить">
         </div>
