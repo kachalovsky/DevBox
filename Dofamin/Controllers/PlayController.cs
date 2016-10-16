@@ -64,7 +64,7 @@ namespace DevBox.Controllers
         {
             var questions = _entities.Complies_Puzzle_Question.Where(x => x.Id_Puzzle == idPuzzle).OrderBy(x => x.Index).Select(x => x.Question).ToList();
             var indexPrevQuestion = questions.IndexOf(prevQuestion);
-            if (indexPrevQuestion + 2 < questions.Count)
+            if (indexPrevQuestion + 1 < questions.Count)
                 return questions[indexPrevQuestion + 1];
             else return null;
         }
